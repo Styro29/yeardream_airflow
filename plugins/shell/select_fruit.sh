@@ -1,10 +1,10 @@
-#!/bin/bash
+#!usr/bin/bash
 FRUIT=$1
-if $FRUIT == "APPLE";then
+if [$FRUIT == APPLE];then
 	echo "You selected Apple!"
-elif $FRUIT == "ORANGE";then
+elif [$FRUIT == ORANGE];then
 	echo "You selected Orange!"
-elif $FRUIT == "GRAPE";then
+elif [$FRUIT == GRAPE];then
 	echo "You selected Grape!"
 else
 	echo "You selected other Fruit!"
