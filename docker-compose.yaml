@@ -290,5 +290,30 @@ services:
       airflow-init:
         condition: service_completed_successfully
 
+  postgres_custom:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER: wypark
+      - POSTGRES_PASSWORD: wypark
+      - POSTGRES_DB: wypark
+      - TZ: Asia/Seoul
+    volumes:
+      - postgres-custom-db-volume:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      network_custom:
+        ipv4_address: 172.31.0.3
+
+networks:
+  network_custom:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.31.0.0/16
+          gateway: 172.31.0.1
+
 volumes:
   postgres-db-volume:
+  postgres-custom-db-volume:
